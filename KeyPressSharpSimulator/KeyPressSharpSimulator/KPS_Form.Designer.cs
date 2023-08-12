@@ -28,52 +28,68 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KPS_Form));
-            this.Start_Button = new System.Windows.Forms.Button();
-            this.Stop_Button = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.messageLabel = new System.Windows.Forms.Label();
+            this.notify_Icon = new System.Windows.Forms.NotifyIcon(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // Start_Button
+            // pictureBox1
             // 
-            this.Start_Button.Location = new System.Drawing.Point(34, 24);
-            this.Start_Button.Name = "Start_Button";
-            this.Start_Button.Size = new System.Drawing.Size(126, 55);
-            this.Start_Button.TabIndex = 0;
-            this.Start_Button.Text = "Start";
-            this.Start_Button.UseVisualStyleBackColor = true;
-            this.Start_Button.Click += new System.EventHandler(this.Start_Button_Click);
+            this.pictureBox1.Image = global::KPS.Properties.Resources.c4890148_119f_4e2e_8d09_16d5e393b63e;
+            this.pictureBox1.Location = new System.Drawing.Point(21, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(184, 160);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
-            // Stop_Button
+            // messageLabel
             // 
-            this.Stop_Button.Location = new System.Drawing.Point(167, 24);
-            this.Stop_Button.Name = "Stop_Button";
-            this.Stop_Button.Size = new System.Drawing.Size(126, 55);
-            this.Stop_Button.TabIndex = 1;
-            this.Stop_Button.Text = "Stop";
-            this.Stop_Button.UseVisualStyleBackColor = true;
-            this.Stop_Button.Click += new System.EventHandler(this.Stop_Button_Click);
+            this.messageLabel.AutoSize = true;
+            this.messageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.messageLabel.Location = new System.Drawing.Point(74, 184);
+            this.messageLabel.Name = "messageLabel";
+            this.messageLabel.Size = new System.Drawing.Size(77, 22);
+            this.messageLabel.TabIndex = 1;
+            this.messageLabel.Text = "Running";
+            this.messageLabel.Visible = false;
+            // 
+            // notify_Icon
+            // 
+            this.notify_Icon.Icon = ((System.Drawing.Icon)(resources.GetObject("notify_Icon.Icon")));
+            this.notify_Icon.Text = "NotifyIcon";
+            this.notify_Icon.Visible = true;
+            this.notify_Icon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notify_Icon_MouseDoubleClick);
             // 
             // KPS_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(325, 101);
-            this.Controls.Add(this.Stop_Button);
-            this.Controls.Add(this.Start_Button);
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ClientSize = new System.Drawing.Size(228, 219);
+            this.Controls.Add(this.messageLabel);
+            this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "KPS_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KPS";
+            this.Resize += new System.EventHandler(this.KPS_Form_Resize);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Timer timer;
-        private System.Windows.Forms.Button Start_Button;
-        private System.Windows.Forms.Button Stop_Button;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label messageLabel;
+        private System.Windows.Forms.NotifyIcon notify_Icon;
     }
 }
 

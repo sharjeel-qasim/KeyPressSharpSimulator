@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>-keyboard-arrow-down_90691.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -79,6 +82,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\c4890148-119f-4e2e-8d09-16d5e393b63e.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="-keyboard-arrow-down_90691.ico" />
+    <Content Include="Resources\-keyboard-arrow-down_90691.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

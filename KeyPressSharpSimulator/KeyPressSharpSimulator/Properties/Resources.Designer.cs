@@ -59,5 +59,15 @@ namespace KPS.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap c4890148_119f_4e2e_8d09_16d5e393b63e {
+            get {
+                object obj = ResourceManager.GetObject("c4890148-119f-4e2e-8d09-16d5e393b63e", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
