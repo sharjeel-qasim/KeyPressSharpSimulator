@@ -13,7 +13,7 @@ namespace KeyPressSharpSimulator
             KeyPreview = true;
             KeyDown += MainForm_KeyDown;
 
-            KPS_Timer.Interval = 3000;
+            KPS_Timer.Interval = 2000;
             KPS_Timer.Tick += Timer_Tick;
         }
 
