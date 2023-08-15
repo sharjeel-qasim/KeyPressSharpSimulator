@@ -28,6 +28,7 @@ namespace KeyPressSharpSimulator
         private void Timer_Tick(object sender, EventArgs e)
         {
             SendKeys.SendWait("{DOWN}");
+            SendKeys.SendWait("{DOWN}");
         }
 
         private void StartKPS()
