@@ -36,7 +36,7 @@ namespace KeyPressSharpSimulator
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            int randomAction = Random.Next(6); // Generate a random number between 0 and 5
+            int randomAction = Random.Next(9); // Generate a random number between 0 and 5
 
             // Use a switch statement to perform a random action
             switch (randomAction)
@@ -45,6 +45,9 @@ namespace KeyPressSharpSimulator
                 case 1:
                 case 2:
                 case 3:
+                case 6:
+                case 7:
+                case 8:
                     // Send a random arrow key
                     int randomDirection = Random.Next(4); // Generate a random number between 0 and 3
                     SendRandomArrowKey(randomDirection);
@@ -70,6 +73,9 @@ namespace KeyPressSharpSimulator
                     SendKeys.SendWait("{UP}");
                     break;
                 case 1:
+                case 6:
+                case 7:
+                case 8:
                     SendKeys.SendWait("{DOWN}");
                     break;
                 case 2:
