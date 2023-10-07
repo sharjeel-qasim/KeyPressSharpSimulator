@@ -6,6 +6,9 @@ namespace KeyPressSharpSimulator
 {
     public partial class KPS_Form : Form
     {
+        [DllImport("user32.dll")]
+        static extern bool SetCursorPos(int X, int Y);
+
         [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
         public static extern void mouse_event(uint dwFlags, int dx, int dy, uint cButtons, uint dwExtraInfo);
 
@@ -36,7 +39,7 @@ namespace KeyPressSharpSimulator
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            int randomAction = Random.Next(9); // Generate a random number between 0 and 5
+            int randomAction = Random.Next(10); // Generate a random number between 0 and 5
 
             // Use a switch statement to perform a random action
             switch (randomAction)
@@ -48,6 +51,7 @@ namespace KeyPressSharpSimulator
                 case 6:
                 case 7:
                 case 8:
+                case 9:
                     // Send a random arrow key
                     int randomDirection = Random.Next(4); // Generate a random number between 0 and 3
                     SendRandomArrowKey(randomDirection);
@@ -58,7 +62,7 @@ namespace KeyPressSharpSimulator
                     break;
                 case 5:
                     // Simulate pressing the Ctrl key
-                    SimulateCTRLClick();
+                    MoveMouse();
                     break;
                 default:
                     break;
@@ -70,12 +74,13 @@ namespace KeyPressSharpSimulator
             switch (direction)
             {
                 case 0:
-                    SendKeys.SendWait("{UP}");
-                    break;
-                case 1:
                 case 6:
                 case 7:
                 case 8:
+                case 9:
+                    SendKeys.SendWait("{DOWN}");
+                    break;
+                case 1:
                     SendKeys.SendWait("{DOWN}");
                     break;
                 case 2:
@@ -123,10 +128,34 @@ namespace KeyPressSharpSimulator
             mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
         }
 
-        private void SimulateCTRLClick()
+        private void MoveMouse()
         {
-            SendKeys.SendWait("^{DOWN}");
-            SendKeys.SendWait("^{UP}");
+            // Define the screen boundaries and the vertical range (adjust these values as needed)
+            int minX = 0;
+            int minY = 0;
+            int maxX = ScreenWidth(); // Get the screen width
+            int maxY = ScreenHeight(); // Get the screen height
+
+            int verticalRange = maxY / 2; // Adjust this value to control the vertical range
+
+            // Generate random X and Y coordinates within the screen boundaries, limiting Y to the vertical range
+            int randomX = Random.Next(minX, maxX);
+            int randomY = Random.Next(minY, maxY - verticalRange) + verticalRange / 2;
+
+            // Move the mouse cursor to the randomly generated position
+            SetCursorPos(randomX, randomY);
+        }
+
+        // Function to get the screen width
+        static int ScreenWidth()
+        {
+            return System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
+        }
+
+        // Function to get the screen height
+        static int ScreenHeight()
+        {
+            return System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height;
         }
     }
 }
